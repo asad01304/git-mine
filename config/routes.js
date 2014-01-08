@@ -34,7 +34,20 @@ module.exports.routes = {
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
     view: 'home/index'
-  }
+  },
+
+
+  '/repo/list/user/:user': {
+    controller: 'RepoController',
+    action: 'listByUser'
+  },
+
+
+  '/repo/list/org/:org': {
+    controller: 'RepoController',
+    action: 'listByOrg'
+  },
+
 
   /*
   // But what if you want your home page to display

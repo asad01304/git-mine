@@ -78,9 +78,10 @@ module.exports = {
 		client.get('/user', {}, function (err, status, body, headers) {
 
 			if(err) return res.redirect('/user/login');
-  			
-  			res.writeHead(200, {'Content-Type': 'text/plain'});
-  			res.end(JSON.stringify(body));
+			res.json(body);
+			
+  			// res.writeHead(200, {'Content-Type': 'application/json'});
+  			// res.end(JSON.stringify(body));
 		});
 
 	},
