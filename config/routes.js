@@ -48,6 +48,12 @@ module.exports.routes = {
     action: 'listByOrg'
   },
 
+  '/repo/:owner/:repo' : {
+    
+    controller: 'RepoController',
+    action: 'get'
+
+  }
 
   /*
   // But what if you want your home page to display

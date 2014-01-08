@@ -33,7 +33,6 @@ module.exports = {
 
   listByUser : function (req, res) {
 
-
     var user  = req.param('user');
     var token = req.session.token;
 
@@ -65,13 +64,38 @@ module.exports = {
     });
   },
 
+  get : function(req, res){
 
+    var token  = req.session.token;
+    var client = token ? github.client(token) : github.client();
 
+    var owner = req.param('owner') , repo = req.param('repo')
+
+    client.get('/repos/'+owner+'/'+ repo, {}, function (err, status, body, headers) {
+      err ? res.json({error : err}) : res.json(body);
+    });
+
+  },
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to RepoController)
    */
   _config: {}
-
-  
 };
+
+
+//    List your repositories
+//    List user repositories
+//    List organization repositories
+//    List all public repositories
+// Create
+//    Get
+// Edit
+// List contributors
+// List languages
+// List Teams
+// List Tags
+// List Branches
+// Get Branch
+// Delete a Repository
+
