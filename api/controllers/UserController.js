@@ -80,7 +80,7 @@ module.exports = {
 			if(err) return res.redirect('/user/login');
   			
   			res.writeHead(200, {'Content-Type': 'text/plain'});
-  			res.send(JSON.stringify(body));
+  			res.end(JSON.stringify(body));
 		});
 
 	},
