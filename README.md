@@ -1,0 +1,2 @@
+# gitmine
+### a Sails application
