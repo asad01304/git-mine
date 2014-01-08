@@ -50,7 +50,9 @@ module.exports = {
 
 	auth : function (req, res){
 		
-		var uri = url.parse(req.url);
+		var uri    = url.parse(req.url),
+			values = qs.parse(uri.query);
+
 
 		if (!state || state[1] != values.state) {
       		res.writeHead(403, {'Content-Type': 'text/plain'});
